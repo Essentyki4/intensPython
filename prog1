@@ -1,0 +1,18 @@
+# Заданные радиусы яиц
+home_radius = 5  # радиус домашнего яйца в см
+incubator_radius = 4  # радиус инкубаторного яйца в см
+
+# Ввод стоимости десятка домашних и инкубаторных яиц
+cost_per_dozen_home = float(input("Введите стоимость десятка домашних яиц: "))
+cost_per_dozen_incubator = float(input("Введите стоимость десятка инкубаторных яиц: "))
+
+# Вычисление количества инкубаторных яиц, эквивалентного объему десятка домашних
+number_of_incubator_eggs = 10 * (home_radius ** 3) / (incubator_radius ** 3)
+
+# Вычисление экономии
+savings = (number_of_incubator_eggs / 10 * cost_per_dozen_incubator) - cost_per_dozen_home
+
+# Вывод результатов
+print("Количество инкубаторных яиц, эквивалентное десятку домашних:", round(number_of_incubator_eggs, 2))
+print("Экономия при покупке десятка домашних яиц:", round(savings, 2), "рублей")
+
