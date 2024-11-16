@@ -1,1 +1,26 @@
+#include <stdio.h>
 
+int main()
+{
+    int grade;
+    //Ввод оценки
+    printf("Введите оценку от 1 до 5: ");
+    scanf("%d", &grade);
+    //Наименование оценки
+    if (grade == 1)
+    {
+        printf("Очень плохо\n");
+    }else if (grade == 2){
+        printf("Плохо\n");
+    }else if (grade == 3){
+        printf ("Удовлетворительно\n");
+    }else if (grade == 4){
+        printf ("Хорошо\n");
+    }else if (grade == 5){
+        printf ("Отлично\n");
+    }else {
+        printf ("Неккоректная оценка\n");
+    }
+    
+    return 0;
+}
