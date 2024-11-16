@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int a,b;//Переменные для хранения пары чисел
+    for (int  i = 1; i <=10; i++ )
+    {
+        cout << "Введите пару чисел (через пробел): ";
+        cin >> a >> b ;
+        
+        if (a>b){
+            cout << "Большее число в паре: " << a << endl;
+        }else if (a<b){
+            cout << "Большее число в паре: " << b << endl;
+        }else {
+            cout << "Числа равны: " << a << endl;
+        }
+        
+    }
+    
+}
