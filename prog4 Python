@@ -1,0 +1,18 @@
+a = float(input("Введите начало интервала a: "))
+b = float(input("Введите конец интервала b: "))
+h = 0.3
+x = a
+min_y = max_y = x**2 + 2*x - 5
+min_x = max_x = x
+for i in range(int((b - a) / h )+1):
+    x = a + i * h
+    y = x**2 + 2*x - 5
+
+    if y < min_y:
+        min_y = y
+        min_x = x
+    if y > max_y:
+        max_y = y
+        max_x = x
+print(f"Минимадьное значение y = {min_y} достигается при {min_x}")
+print(f"Максимальное значение y = {max_y} достигается при {max_x}")
