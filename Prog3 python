@@ -1,0 +1,20 @@
+diameter = int (input("Введите диаметр планеты в километрах: "))
+if diameter == 4879:
+    planet = "Меркурий"
+elif diameter == 12104:
+    planet = "Венера"
+elif diameter == 12742:
+    planet = "Земля"
+elif diameter == 6779:
+    planet = "Марс"
+elif diameter == 139820:
+    planet = "Юпитер"
+elif diameter == 116460:
+    planet = "Сатурн"
+elif diameter == 50724:
+    planet = "Уран"
+elif diameter == 49244:
+    planet = "Нептун"
+else:
+    planet = "Планета с таким диаметром не найдена."
+print(planet)
