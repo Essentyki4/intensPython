@@ -1,0 +1,31 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+ int n;
+ cout << "Введите число для разложения на простые множители: ";
+ cin >> n;
+ 
+ if (n <= 1){
+     cout << "Введённое число должно быть больше 1: " <<  endl;
+     return 0;
+ }
+ int count = 0;
+ int factor = 2;
+ cout << "Протые мнжители числа: ";
+ 
+ do {
+     if (n % factor == 0){
+         cout << factor << " ";
+         n /= factor;
+         count++;
+     }else{
+         factor++;
+     }
+ }while (n > 1);
+ cout << endl;
+ cout << "Количество простых множителей: " << count << endl;
+ 
+ return 0;
+}
