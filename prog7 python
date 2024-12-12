@@ -1,0 +1,19 @@
+def find_average_excluding_range(arr, K, L):
+    # Исключаем элементы с индексами от K-1 до L-1
+    remaining_elements = arr[:K-1] + arr[L:]
+    
+    if not remaining_elements:
+        return 0  # Если все элементы исключены, возвращаем 0
+    
+    return sum(remaining_elements) / len(remaining_elements)
+
+
+N = int(input("Введите размер массива N: "))
+arr = list(map(int, input("Введите элементы массива через пробел: ").split()))
+K, L = map(int, input("Введите значения K и L: ").split())
+
+if 1 <= K <= L <= N:
+    result = find_average_excluding_range(arr, K, L)
+    print(f"Среднее арифметическое: {result:.2f}")
+else:
+    print("Ошибка: 1 ≤ K ≤ L ≤ N")
