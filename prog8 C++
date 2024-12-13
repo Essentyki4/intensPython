@@ -1,0 +1,48 @@
+#include <iostream>
+#include <vector>
+#include <limits>
+
+using namespace std;
+int findSpecialElement(const vector<vector<int>>& matrix);
+
+int main(){
+    int M, N;
+    std::cout << "Введите количество строк: " << std::endl;
+    std::cin >> M;
+    cout<<"Введите количество столбцов: "<<endl;
+    cin>>N;
+    vector<vector<int>> matrix (M, vector<int>(N));
+    cout << "Введите элементы мвтрицы построчно:\n";
+    for (int i =0; i<M;++i)
+    for (int j =0; j<N;++j)
+    cin>>matrix[i][j];
+    int result = findSpecialElement(matrix);
+    if (result == 0)
+    cout<< "Элемент не найден\n";
+    else
+    cout<<"Найденный элемент: "<< result << endl;
+    return 0;
+}
+int findSpecialElement (const vector<vector<int>>& matrix){
+    
+
+
+    int M = matrix.size(), N = matrix[0].size();
+    
+    for (int i = 0; i<M;++i)
+    {
+        int maxInRow = matrix[i][0], colIdx =0;
+        for (int j =0; j<N;++j)
+        if (matrix[i][j] > maxInRow)
+        maxInRow = matrix[i][j], colIdx = j;
+        
+        bool isMinInCol = true;
+        for (int k =0; k < M; ++k)
+        if (matrix[k][colIdx]<maxInRow){
+            isMinInCol = false;
+            break;
+        }
+        if (isMinInCol) return maxInRow;
+    }
+    return 0;
+}
