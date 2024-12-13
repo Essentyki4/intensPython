@@ -1,0 +1,29 @@
+def swap_matrix_halves(matrix):
+    for i in range(len(matrix)):
+        mid = len(matrix[i]) // 2
+        matrix[i] = matrix[i][mid:] + matrix[i][:mid]
+    return matrix
+
+
+def main():
+    M, N = map(int, input("Введите размеры матрицы M и N (N должно быть четным): ").split())
+
+    if N % 2 != 0:
+        print("Ошибка: количество столбцов должно быть четным!")
+        return
+
+    matrix = [list(map(int, input(f"Введите элементы строки {i + 1}: ").split())) for i in range(M)]
+
+    print("Исходная матрица:")
+    for row in matrix:
+        print(row)
+
+    matrix = swap_matrix_halves(matrix)
+
+    print("Модифицированная матрица:")
+    for row in matrix:
+        print(row)
+
+
+if __name__ == "__main__":
+    main()
