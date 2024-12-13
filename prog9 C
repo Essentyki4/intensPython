@@ -1,0 +1,52 @@
+#include <stdio.h>
+#include <math.h>
+
+typedef struct {
+    double x;
+    double y;
+} Point;
+
+// Функция вычисления центра и радиуса окружности
+int findCircle(Point p1, Point p2, Point p3, Point *center, double *radius) {
+    double x1 = p1.x, y1 = p1.y;
+    double x2 = p2.x, y2 = p2.y;
+    double x3 = p3.x, y3 = p3.y;
+
+    double a = x1 * (y2 - y3) - y1 * (x2 - x3) + x2 * y3 - x3 * y2;
+
+    if (a == 0) {
+        return 0; // Точки лежат на одной прямой, окружность не существует
+    }
+
+    double b1 = (x1*x1 + y1*y1) * (y3 - y2) + (x2*x2 + y2*y2) * (y1 - y3) + (x3*x3 + y3*y3) * (y2 - y1);
+    double b2 = (x1*x1 + y1*y1) * (x2 - x3) + (x2*x2 + y2*y2) * (x3 - x1) + (x3*x3 + y3*y3) * (x1 - x2);
+
+    center->x = -b1 / (2 * a);
+    center->y = -b2 / (2 * a);
+
+    *radius = sqrt((center->x - x1)*(center->x - x1) + (center->y - y1)*(center->y - y1));
+
+    return 1; // Успех
+}
+
+int main() {
+    Point p1, p2, p3, center;
+    double radius;
+
+    printf("Введите координаты трех точек:\n");
+    printf("Точка 1 (x y): ");
+    scanf("%lf %lf", &p1.x, &p1.y);
+    printf("Точка 2 (x y): ");
+    scanf("%lf %lf", &p2.x, &p2.y);
+    printf("Точка 3 (x y): ");
+    scanf("%lf %lf", &p3.x, &p3.y);
+
+    if (findCircle(p1, p2, p3, &center, &radius)) {
+        printf("Центр окружности: (%.2lf, %.2lf)\n", center.x, center.y);
+        printf("Радиус окружности: %.2lf\n", radius);
+    } else {
+        printf("Окружность через эти три точки не существует (все три точки лежат на одной прямой).\n");
+    }
+
+    return 0;
+}
